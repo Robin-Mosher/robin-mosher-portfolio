@@ -21,7 +21,7 @@ export default function Home() {
             <div className="relative max-w-3xl md:max-w-xl md:py-6 bottom-40 left-4 bg-black/40 py-10 px-16 rounded-r-3xl">
               <div className=" text-white text-center">
                   <h3 className="text-5xl">Robin Mosher</h3>
-                  <p className="text-lg">Heart of an Artist. Hands of a Craftsman.</p>
+                  <p className="text-lg">RAWRRRRR Heart of an Artist. Hands of a Craftsman.</p>
               </div>
             </div>
           </div>
