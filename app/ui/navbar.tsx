@@ -1,94 +1,112 @@
-"use client"
-import Image from "next/image"
-import Link from "next/link"
-import { useState } from "react"
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
-const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false)
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <>
       {/* === NAVBAR === */}
-      <nav className="fixed top-2 left-0 right-0 z-50 bg-secondary opacity-90 shadow-lg container-main mx-auto rounded-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+      <nav className="sticky z-30 bg-black top-0 justify-center mx-auto px-10 rounded-md py-0">
+        <div className="bg-secondary rounded-md max-w-7xl mx-auto px-4 transition-all">
+          <div className="flex items-center justify-between gap-5 h-16">
             {/* Logo */}
-            <div className="shrink-0">
+            <div className="">
               <Link href="/">
-                <Image
-                  src="/images/lunar-orchid-logo.png"
-                  alt="Lunar Orchid Jewelry"
-                  height={80}
-                  width={80}
-                  className="h-12 w-auto"
-                />
+                <div className="h-15 w-15 bg-slate-500">
+                </div>
               </Link>
             </div>
 
             {/* Desktop Nav */}
-            <div className="lg:flex items-center space-x-8">
-              <a
-                href="product"
-                className="text-white text-md font-josefin hover:text-primary transition-colors"
-              >
-                Product
-              </a>
-              <a
-                href="#"
-                className="text-white text-md font-josefin hover:text-primary transition-colors"
+            <div className="hidden lg:flex items-center text-center space-x-6 px-5">
+              <Link
+                href="/"
+                className="text-white text-sm font-cinzel hover:text-primary transition-colors"
               >
                 Home
-              </a>
-              <a
-                href="#"
-                className="text-white text-md font-josefin hover:text-primary transition-colors"
+              </Link>
+              <Link
+                href="/about"
+                className="text-white text-sm font-cinzel hover:text-primary transition-colors"
               >
-                Necklaces
-              </a>
-              <a
-                href="#"
-                className="text-white text-lg font-josefin hover:text-primary transition-colors"
+                About              </Link>
+              <Link
+                href="/resume"
+                className="text-white text-sm font-cinzel hover:text-primary transition-colors"
               >
-                Bracelets
-              </a>
-              <a
-                href="#"
-                className="text-white text-lg font-josefin hover:text-primary transition-colors"
+                Resume
+              </Link>
+              <Link
+                href="/art-design"
+                className="text-white text-sm font-cinzel hover:text-primary transition-colors"
               >
-                Rings
-              </a>
-              <a
-                href="#"
-                className="text-white text-lg font-josefin hover:text-primary transition-colors"
+                Portfolio
+              </Link>
+              <Link
+                href="/jewelry"
+                className="text-white text-sm font-cinzel hover:text-primary transition-colors"
               >
-                Gallery
-              </a>
+                Jewelry Shop
+              </Link>
+              <Link
+                href="/flow-arts"
+                className="text-white text-sm font-cinzel hover:text-primary transition-colors"
+              >
+                Flow Arts
+              </Link>
+              <Link
+                href="/digital-sketchbook"
+                className="text-white text-sm font-cinzel hover:text-primary transition-colors"
+              >
+                Sketchbook
+              </Link>
             </div>
 
             {/* Social Icons (Desktop) */}
-            <div className="hidden lg:flex items-center space-x-4">
+            <div className="hidden lg:flex items-center gap-1">
               <a
-                href="#"
-                className="text-white p-2 hover:text-primary transition-colors"
+                href="https://www.instagram.com/lunarorchidjewelry"
+                className="text-white hover:text-primary transition-colors"
                 aria-label="Instagram"
               >
-                <i className="fab fa-instagram text-lg" />
+                <div className="h-15 w-15 bg-amber-600">
+                </div>
               </a>
               <a
-                href="#"
-                className="text-white p-2 hover:text-primary transition-colors"
+                href="https://www.pinterest.com/lunarorchidjewelry/"
+                className="text-white hover:text-primary transition-colors"
                 aria-label="Pinterest"
               >
-                <i className="fab fa-pinterest text-lg" />
-              </a>
-              <a
-                href="#"
-                className="text-white p-2 hover:text-primary transition-colors"
-                aria-label="Facebook"
-              >
-                <i className="fab fa-facebook text-lg" />
+                <div className="h-15 w-15 bg-amber-600">
+                </div>
               </a>
             </div>
+
+            {/* Shopping Cart
+            <div className="relative cursor-pointer">
+              <Link href='/cart'>
+                <div>
+                  <Image
+                    src={basePath("images/instagram-logo.png")}
+                    alt="Lunar Orchid Jewelry Instagram"
+                    height={50}
+                    width={50}
+                    className="fab fa-instagram text-lg"
+                  />
+                  <span className="absolute -top-2 -right-2 text-lg  bg-red-600 h-5 w-5 rounded-full grid place-items-center text-white">0
+                  </span>
+                </div>
+              </Link>
+
+
+
+              </div>
+
+*/}
+
 
             {/* Hamburger Button (Mobile) */}
             <button
@@ -96,84 +114,113 @@ const Navbar = () => {
               className="lg:hidden flex flex-col justify-center items-center w-10 h-10 text-white"
               aria-label="Toggle navigation"
             >
-              Menu
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {menuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
             </button>
           </div>
 
           {/* Mobile Menu */}
           <div
-            className={`${menuOpen ? "max-h-125" : ""} max-h-0 transition-all overflow-hidden lg:hidden bg-accent border-t border-dark-border`}
+            className={`${menuOpen ? "max-h-96" : "max-h-0"} transition-all duration-300 overflow-hidden lg:hidden bg-secondary`}
           >
             <ul className="py-4 space-y-4 text-center">
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/"
                   className="text-white text-lg font-josefin hover:text-primary transition-colors block"
+                  onClick={() => setMenuOpen(false)}
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/catalog/all"
                   className="text-white text-lg font-josefin hover:text-primary transition-colors block"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  All Products
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/catalog/necklaces"
+                  className="text-white text-lg font-josefin hover:text-primary transition-colors block"
+                  onClick={() => setMenuOpen(false)}
                 >
                   Necklaces
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/catalog/bracelets"
                   className="text-white text-lg font-josefin hover:text-primary transition-colors block"
+                  onClick={() => setMenuOpen(false)}
                 >
                   Bracelets
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/catalog/rings"
                   className="text-white text-lg font-josefin hover:text-primary transition-colors block"
+                  onClick={() => setMenuOpen(false)}
                 >
                   Rings
-                </a>
+                </Link>
               </li>
               <li>
+                <Link
+                  href="/catalog/earrings"
+                  className="text-white text-lg font-josefin hover:text-primary transition-colors block"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Earrings
+                </Link>
+              </li>
+              <li className="flex justify-center space-x-4 pt-4">
                 <a
                   href="#"
-                  className="text-white text-lg font-josefin hover:text-primary transition-colors block"
+                  className="text-white p-2 hover:text-primary transition-colors"
+                  aria-label="Instagram"
                 >
-                  Gallery
+                  <div className="h-20 w-20 bg-amber-600">
+                  </div>
+                </a>
+                <a
+                  href="#"
+                  className="text-white p-2 hover:text-primary transition-colors"
+                  aria-label="Pinterest"
+                >
+                  <div className="h-20 w-20 bg-amber-600">
+                  </div>
                 </a>
               </li>
             </ul>
-            <div className="flex justify-center space-x-6 pb-4">
-              <a
-                href="#"
-                className="text-white p-2 hover:text-primary transition-colors"
-                aria-label="Instagram"
-              >
-                <i className="fab fa-instagram text-lg" />
-              </a>
-              <a
-                href="#"
-                className="text-white p-2 hover:text-primary transition-colors"
-                aria-label="Pinterest"
-              >
-                <i className="fab fa-pinterest text-lg" />
-              </a>
-              <a
-                href="#"
-                className="text-white p-2 hover:text-primary transition-colors"
-                aria-label="Facebook"
-              >
-                <i className="fab fa-facebook text-lg" />
-              </a>
-            </div>
           </div>
         </div>
       </nav>
     </>
-  )
+  );
 }
-
-export default Navbar

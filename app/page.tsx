@@ -1,844 +1,167 @@
 import Image from "next/image";
 import Navbar from "./ui/navbar";
+import { basePath } from "./utils";
 
+// prettier-ignore
 export default function Home() {
   return (
-    <>
-      <div className="bg-primary pt-20 font-josefin text-white">
-        <Navbar />
+    <div className="bg-white">
+      {/* Navbar */}
+      <Navbar />
 
-        {/* === HERO / HEADER === */}
-        <section>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 py-12">
-              {/* Logo Image */}
-              <div className="w-[30%] lg:w-[35%] flex justify-center">
-                <Image
-                  src="images/lunar-orchid-logo.png"
-                  alt="Lunar Orchid Jewelry Logo"
-                  height={400}
-                  width={400}
-                  className="max-w-full h-auto object-contain lg:max-w-md"
-                />
-              </div>
-
-              {/* Title & CTA */}
-              <div className="w-full lg:w-[65%] text-center lg:text-left">
-                <h1 className="font-family-cinzel text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white mb-6">
-                  Lunar Orchid Jewelry
-                </h1>
-
-                <h3 className="font-bad-script text-xl text-center sm:text-2xl text-gray-100 mb-4 leading-relaxed">
-                  <p>Earthly Inspired</p>
-                  <p>Hand Made</p>
-                  <p>Uniquely Imperfect</p>
-                </h3>
-
-                <h4 className="font-bad-script text-base text-center sm:text-lg text-gray-100 mb-8 leading-relaxed">
-                  <p>Float among the mystical and the magical</p>
-                </h4>
-                <div className="flex flex-wrap gap-4 justify-center">
-                  <a
-                    href="#"
-                    className="inline-block bg-secondary text-white px-5 py-3 font-josefin text-base hover:bg-accent transition-colors rounded-sm"
-                  >
-                    Shop by Product
-                  </a>
-                  <a
-                    href="#"
-                    className="inline-block bg-secondary text-white px-5 py-3 font-josefin text-base hover:bg-accent transition-colors rounded-sm"
-                  >
-                    Shop by Collection
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* === IMAGE - Feature Image === */}
-        <section className="bg-primary py-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-center">
-              <div className="w-full max-w-5xl ">
-                <Image
-                  src="images/copper-amethyst-cuff.webp"
-                  alt="Copper Amethyst Cuff"
-                  height={40}
-                  width={40}
-                  className="w-full h-auto object-cover rounded-2xl"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* === SHOP BY PRODUCT (Dark Section) === */}
-        <section className="bg-primary py-8">
-          <h1 className="font-cinzel text-white text-lg text-center ">
-            Shop by Product
-          </h1>
-        </section>
-
-        {/* === NECKLACES === */}
-        <Collection
-          title="Necklaces"
-          button="More Necklaces"
-          productTileList={necklaceList}
-        />
-
-        {/* === BRACELETS === */}
-        <Collection
-          title="Bracelets"
-          button="More Bracelets"
-          productTileList={braceletList}
-        />
-
-        {/* === RINGS === */}
-        <Collection
-          title="Rings"
-          button="More Rings"
-          productTileList={ringList}
-        />
-
-        {/* === SHOP BY COLLECTION (Dark Section) === */}
-        <section className="bg-primary py-16 lg:py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <h1 className="font-cinzel text-white text-3xl sm:text-4xl lg:text-5xl mb-4">
-                Shop by Collection
-              </h1>
-            </div>
-          </div>
-        </section>
-
-        {/* === OCEAN GODDESS === */}
-        <section className="bg-primary py-12 lg:py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="category-line py-4 mb-8 text-center">
-              <p className="text-2xl font-josefin text-dark">Ocean Goddess</p>
-            </div>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-              {oceangoddessList.map((item, i) => (
-                <div
-                  key={i}
-                  className="rounded-b-md hover:shadow-lg hover:scale-105 transition"
-                >
-                  <a
-                    href="rose-gold-ammonite-fossil-pendant.html"
-                    className="block"
-                  >
-                    <div className="overflow-hidden rounded-sm mb-3">
-                      <Image
-                        src={item.img}
-                        alt="Ocean Goddess Collection"
-                        height={40}
-                        width={40}
-                        className="w-full h-48 lg:h-64 object-cover"
-                      />
-                    </div>
-                    <h4 className="text-primary text-base font-josefin text-center mb-1">
-                      {item.name}
-                    </h4>
-
-                    <p className="text-dark text-lg font-josefin text-center">
-                      {item.price}
-                    </p>
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* === FOREST NYMPH === */}
-        <section className="bg-primary py-12 lg:py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="category-line py-4 mb-8 text-center">
-              <p className="text-2xl font-josefin text-dark">Forest Nymph</p>
-            </div>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-              {forestnymphList.map((item, i) => (
-                <div
-                  key={i}
-                  className="rounded-b-md hover:shadow-lg hover:scale-105 transition"
-                >
-                  <a href="shop-all-rings.html" className="block">
-                    <div className="overflow-hidden rounded-sm mb-3">
-                      <Image
-                        src={item.img}
-                        alt=""
-                        height={40}
-                        width={40}
-                        className="w-full h-48 lg:h-64 object-cover"
-                      />
-                    </div>
-                    <h4 className="text-base font-josefin text-center mb-1">
-                      {item.name}
-                    </h4>
-                    <p className="text-dark text-lg font-josefin text-center">
-                      coming soon
-                    </p>
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* === VIKING QUEEN === */}
-        <section className="bg-primary py-12 lg:py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="border-y border-[#e0e0e0] py-4 mb-8 text-center">
-              <p className="text-2xl font-josefin text-dark">Dragon Slayer</p>
-            </div>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-              {vikingqueenList.map((item, i) => (
-                <div
-                  key={i}
-                  className="rounded-b-md hover:shadow-lg hover:scale-105 transition"
-                >
-                  <a href="shop-all-rings.html" className="block">
-                    <div className="overflow-hidden rounded-sm mb-3">
-                      <Image
-                        src={item.img}
-                        alt=""
-                        height={40}
-                        width={40}
-                        className="w-full h-48 lg:h-64 object-cover"
-                      />
-                    </div>
-                    <h4 className="text-base font-josefin text-center mb-1">
-                      {item.name}
-                    </h4>
-                    <p className="text-dark text-lg font-josefin text-center">
-                      coming soon
-                    </p>
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* === ABOUT THE CREATOR === */}
-        <section className="bg-primary py-16 lg:py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row-reverse gap-12 items-center">
-              <div className="w-full lg:w-1/2">
-                <div className="overflow-hidden rounded-sm">
-                  <Image
-                    src="images/dsc-8646-768x1152.webp"
-                    alt="Robin - Creator of Lunar Orchid Jewelry"
-                    height={40}
-                    width={40}
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
-              </div>
-              <div className="w-full lg:w-1/2">
-                <p className="text-sm uppercase tracking-wider text-gray-400 mb-4 font-josefin">
-                  <strong>About the Creator</strong>
-                </p>
-                <h2 className="font-cinzel text-white text-2xl sm:text-3xl lg:text-4xl mb-6">
-                  Hi! My name is Robin!
-                </h2>
-                <div className="text-gray-300 font-josefin leading-relaxed">
-                  <p className="mb-4">
-                    I'm the creative behind Lunar Orchid Jewelry!
-                  </p>
-                  <p className="mb-4">
-                    I developed a love of making jewelry in my childhood. My
-                    great-grandmother was an artist, jeweler, and collector of
-                    stones, shells, and trinkets of the earth. She taught me the
-                    basic skills of jewelry crafting, which I continued to
-                    foster after she passed.
-                  </p>
-                  <p>
-                    When I'm not making jewelry, I'm probably doing something
-                    ridiculous and you shouldn't ask too many questions.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* === DONATION SECTION === */}
-        <section className="bg-primary py-16 lg:py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <div className="flex flex-col lg:flex-row gap-12 items-center">
-                <div className="w-full lg:w-1/2 text-center lg:text-left">
-                  <div className="border border-dark rounded-sm p-8">
-                    <p className="text-lg font-josefin mb-6">
-                      <a
-                        href="donation.html"
-                        className="text-dark hover:text-primary transition-colors font-medium"
-                      >
-                        Donate HERE!
-                      </a>
-                    </p>
-                    <p className="text-gray-600 font-josefin leading-relaxed">
-                      Click to send head scratches to Jack
-                      <br />
-                      <em>- His Majesty Mr. Snoot -</em>
-                      <br />
-                      Who single pawedly keeps Lunar Orchid Jewelry running
-                      smoothly
-                    </p>
-                  </div>
-                </div>
-                <div className="w-full lg:w-1/2">
-                  <div className="overflow-hidden rounded-lg">
-                    <a href="donation.html">
-                      <Image
-                        src="images/img-2319-1138x854.webp"
-                        alt="Thank you for donating!"
-                        height={40}
-                        width={40}
-                        className="w-full h-auto object-cover rounded-lg"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* === CONTACT FORM === */}
-        <section className="bg-primary py-16 lg:py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-xl mx-auto">
-              <div className="text-center mb-8">
-                <h3 className="font-cinzel text-2xl sm:text-3xl text-dark mb-4">
-                  Contact Me!
-                </h3>
-                <p className="text-gray-600 font-josefin leading-relaxed">
-                  Please reach out with any questions!
-                  <br />
-                  <br />
-                  <em>*Site in Construction*</em>
-                  <br />
-                  If you notice a broken link please let me know!
-                </p>
-              </div>
-              <form
-                action="https://mobirise.eu/"
-                method="POST"
-                className="space-y-4"
-              >
-                <input
-                  type="hidden"
-                  name="email"
-                  data-form-email="true"
-                  value="RsFgMPN/DMAPLjBmTFh5r1Kao99mgjskMK0PQycW5kq0M5E+1k1eOJbRQ+2tfLVp4IE2zLqmfzOXjmrlNk2NjRXzsH3wzWPbfqyDEhDKM9Tg6xWbC53V+zNPl1W4OAZc.uuHL9Ohemqev86tiEfkMxT36HukH4Qx7gV3WnOiPGjOxY6SpAMM+C4nGZrt+ZoLorX6WBk0jWXwoqQ+1MK+Rid7xVmwXHNd3q5O43nEqyDBFWfJrxkbVkGu+T8WQcmLC"
-                />
-                <div
-                  className="hidden bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-sm"
-                  role="alert"
-                >
-                  Thanks for reaching out. I'll be in touch soon!
-                </div>
-                <div
-                  className="hidden bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-sm"
-                  role="alert"
-                >
-                  Oops...! some problem!
-                </div>
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-josefin text-dark mb-1"
-                  >
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    className="border focus:shadow transition w-full px-4 py-2 font-josefin text-base"
-                    placeholder=""
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email-field"
-                    className="block text-sm font-josefin text-dark mb-1"
-                  >
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    name="email1"
-                    id="email-field"
-                    className="border focus:shadow transition w-full px-4 py-2 font-josefin text-base"
-                    placeholder=""
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="textarea"
-                    className="block text-sm font-josefin text-dark mb-1"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    name="textarea"
-                    id="textarea"
-                    rows={5}
-                    className="border focus:shadow transition w-full px-4 py-2 font-josefin text-base"
-                  />
-                </div>
-                <div className="text-center">
-                  <button
-                    type="submit"
-                    className="bg-primary text-white px-8 py-3 font-josefin text-base hover:bg-primary-hover transition-colors rounded-sm"
-                  >
-                    Send Message Now
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </section>
-
-        {/* === FOOTER === */}
-        <footer className="bg-primary text-white py-12 lg:py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row gap-12">
-              <div className="w-full lg:w-1/2">
-                <div className="flex flex-col md:flex-row gap-8">
-                  <div className="md:w-1/2">
-                    <h3
-                      className="font-cinzel text-lg leading-relaxed"
-                      style={{ fontWeight: "normal" }}
-                    >
-                      Lunar Orchid <br />
-                      Jewelry
-                    </h3>
-                  </div>
-                  <div className="md:w-1/2">
-                    <ul className="space-y-2 font-josefin">
-                      <li>
-                        <a
-                          href="index.html#About"
-                          className="text-white hover:text-primary transition-colors"
-                        >
-                          About
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="shop-necklace-pendants.html"
-                          className="text-white hover:text-primary transition-colors"
-                        >
-                          Necklaces
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="shop-all-bracelets.html"
-                          className="text-white hover:text-primary transition-colors"
-                        >
-                          Bracelets
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="shop-all-rings.html"
-                          className="text-white hover:text-primary transition-colors"
-                        >
-                          Rings
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="help-and-policies.html"
-                          className="text-white hover:text-primary transition-colors"
-                        >
-                          FAQ and Policies
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="index.html#help"
-                          className="text-white hover:text-primary transition-colors"
-                        >
-                          Contact
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div className="w-full lg:w-1/2">
-                <h6 className="font-cinzel text-lg mb-4">
-                  <a
-                    href="gallery.html"
-                    className="text-white hover:text-primary transition-colors"
-                  >
-                    Gallery
-                  </a>
-                </h6>
-                <div className="grid grid-cols-3 gap-2">
-                  {[
-                    "images/94fce968-b64b-4599-b08a-d90db876f07c-1000x1250.webp",
-                    "images/hawk-eye.webp",
-                    "images/img-588520copy-899x1154.webp",
-                    "images/seaglass20eye20wrap-369x492.webp",
-                    "images/img-659120large-369x478.webp",
-                    "images/icon-369x492.webp",
-                  ].map((img, i) => (
-                    <div
-                      key={i}
-                      className="hover:scale-105 hover:transition-transform"
-                    >
-                      <a href="gallery.html">
-                        <Image
-                          src={img}
-                          alt="Jewelry Gallery Item"
-                          height={40}
-                          width={40}
-                          className="aspect-square"
-                        />
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
-
-        {/* === OUR SERVICES === */}
-        <section className="bg-white py-16 lg:py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <h3 className="font-cinzel text-2xl sm:text-3xl lg:text-4xl text-dark mb-6">
-                OUR SERVICES
-              </h3>
-              <h3 className="text-gray-600 font-josefin text-base sm:text-lg leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </h3>
-            </div>
-            <div className="flex flex-col lg:flex-row gap-12 justify-center">
-              {[
-                {
-                  date: "MAY 4, 2021 / BODY MASSAGE",
-                  title: "AROMATIC OILS FOR FACE AND BODY",
-                  author: "By Loreen Walsh",
-                  img: "images/features13.webp",
-                },
-                {
-                  date: "MAY 4, 2021 / BODY MASSAGE",
-                  title: "AROMATIC OILS FOR FACE AND BODY",
-                  author: "By Loreen Walsh",
-                  img: "images/features14.webp",
-                },
-                {
-                  date: "MAY 4, 2021 / BODY MASSAGE",
-                  title: "AROMATIC OILS FOR FACE AND BODY",
-                  author: "By Loreen Walsh",
-                  img: "images/features15.webp",
-                },
-              ].map((item, i) => (
-                <div key={i} className="w-full lg:w-[33%] text-center">
-                  <div className="overflow-hidden rounded-sm">
-                    <Image
-                      src={item.img}
-                      alt=""
-                      height={40}
-                      width={40}
-                      className="w-full h-48 lg:h-64 object-cover"
-                    />
-                  </div>
-                  <div className="mt-6">
-                    <p className="text-gray-500 font-josefin text-sm mb-1">
-                      {item.date}
-                    </p>
-                    <h5 className="font-josefin text-base sm:text-lg text-dark mb-2">
-                      {item.title}
-                    </h5>
-                    <h5 className="font-josefin text-sm text-gray-500">
-                      {item.author}
-                    </h5>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </div>
-    </>
-  );
-}
-
-const necklaceList = [
-  {
-    img: "images/forest-pearl-icon.webp",
-    alt: "Sterling Silver Bello Opal Necklace Pendant",
-    link: "cosmic-oasis",
-    name: "Cosmic Oasis",
-    price: "$PRICE",
-  },
-  {
-    img: "images/sacred-alignment-icon.webp",
-    alt: "",
-    link: "",
-    name: "Cosmic Oasis",
-    price: "$PRICE",
-  },
-  {
-    img: "images/cosmic-oasis-3.webp",
-    alt: "",
-    link: "",
-    name: "Cosmic Oasis",
-    price: "$PRICE",
-  },
-  {
-    img: "images/faire-magic-icon.webp",
-    alt: "",
-    link: "",
-    name: "Cosmic Oasis",
-    price: "$PRICE",
-  },
-];
-
-const braceletList = [
-  {
-    img: "images/photoroom-20260116.webp",
-    alt: "",
-    link: "",
-    name: "Bracelet1",
-    price: "$PRICE",
-  },
-  {
-    img: "images/copper-amethyst-cuff-copy.webp",
-    alt: "",
-    link: "",
-    name: "Bracelet2",
-    price: "$PRICE",
-  },
-  {
-    img: "images/photoroom-20260129.webp",
-    alt: "",
-    link: "",
-    name: "Bracelet3",
-    price: "$PRICE",
-  },
-  {
-    img: "images/orange-agate-copper-cuff.webp",
-    alt: "",
-    link: "",
-    name: "Bracelet4",
-    price: "$PRICE",
-  },
-];
-
-const ringList = [
-  {
-    img: "images/photoroom-20260116.webp",
-    alt: "",
-    link: "",
-    name: "Ring1",
-    price: "$PRICE",
-  },
-  {
-    img: "images/copper-amethyst-cuff-copy.webp",
-    alt: "",
-    link: "",
-    name: "Ring2",
-    price: "$PRICE",
-  },
-  {
-    img: "images/photoroom-20260129.webp",
-    alt: "",
-    link: "",
-    name: "Ring3",
-    price: "$PRICE",
-  },
-  {
-    img: "images/orange-agate-copper-cuff.webp",
-    alt: "",
-    link: "",
-    name: "Ring4",
-    price: "$PRICE",
-  },
-];
-
-const oceangoddessList = [
-  {
-    img: "images/photoroom-20260116.webp",
-    alt: "",
-    link: "",
-    name: "OG1",
-    price: "$PRICE",
-  },
-  {
-    img: "images/copper-amethyst-cuff-copy.webp",
-    alt: "",
-    link: "",
-    name: "OG2",
-    price: "$PRICE",
-  },
-  {
-    img: "images/photoroom-20260129.webp",
-    alt: "",
-    link: "",
-    name: "Ring3",
-    price: "$PRICE",
-  },
-  {
-    img: "images/orange-agate-copper-cuff.webp",
-    alt: "",
-    link: "",
-    name: "OG4",
-    price: "$PRICE",
-  },
-];
-
-const forestnymphList = [
-  {
-    img: "images/photoroom-20260116.webp",
-    alt: "",
-    link: "",
-    name: "FN1",
-    price: "$PRICE",
-  },
-  {
-    img: "images/copper-amethyst-cuff-copy.webp",
-    alt: "",
-    link: "",
-    name: "FN2",
-    price: "$PRICE",
-  },
-  {
-    img: "images/photoroom-20260129.webp",
-    alt: "",
-    link: "",
-    name: "FN3",
-    price: "$PRICE",
-  },
-  {
-    img: "images/orange-agate-copper-cuff.webp",
-    alt: "",
-    link: "",
-    name: "FN4",
-    price: "$PRICE",
-  },
-];
-
-const vikingqueenList = [
-  {
-    img: "images/photoroom-20260116.webp",
-    alt: "",
-    link: "",
-    name: "VQ1",
-    price: "$PRICE",
-  },
-  {
-    img: "images/copper-amethyst-cuff-copy.webp",
-    alt: "",
-    link: "",
-    name: "VQ2",
-    price: "$PRICE",
-  },
-  {
-    img: "images/photoroom-20260129.webp",
-    alt: "",
-    link: "",
-    name: "VQ3",
-    price: "$PRICE",
-  },
-  {
-    img: "images/orange-agate-copper-cuff.webp",
-    alt: "",
-    link: "",
-    name: "VQ4",
-    price: "$PRICE",
-  },
-];
-
-{
-  /* === PRODUCT TILE COMPONENT === */
-}
-type ProductTileProps = {
-  item: ProductTileItem;
-};
-
-type ProductTileItem = {
-  img: string;
-  alt: string;
-  name: string;
-  link: string;
-  price: string;
-};
-
-const ProductTile = ({ item }: ProductTileProps) => {
-  return (
-    <>
-      <div className="rounded-xl hover:shadow-lg ">
-        <a
-          href={item.link}
-          className="block"
-        >
-          <div className="overflow-hidden hover:scale-98  transition rounded-sm mb-3">
+      {/* HEADER */}
+          <div className="w-full h-auto">
             <Image
-              src={item.img}
-              alt={item.alt}
+              src={basePath("images/banner.jpg")}
+              alt="Robin Mosher"
               height={40}
               width={40}
-              className="aspect-square w-full h-auto object-cover"
+              className="w-full h-auto object-cover"
+            />
+            <div className="relative max-w-3xl md:max-w-xl md:py-6 bottom-40 left-4 bg-black/40 py-10 px-16 rounded-r-3xl">
+              <div className=" text-white text-center">
+                  <h3 className="text-5xl">Robin Mosher</h3>
+                  <p className="text-lg">Heart of an Artist. Hands of a Craftsman.</p>
+              </div>
+            </div>
+          </div>
+
+      {/* MEET ROBIN SECTION */}
+        <div className="bg-mauve-400">
+          <div className=" flex flex-grid max-w-6xl mx-auto justify-between gap-6 p-10  text-xl text-center text-black">
+          <div className="h-auto w-75">
+            <div className="overflow-hidden hover:scale-105 transition shadow-xl rounded-xl">
+              <Image
+                src={basePath("images/robinsword.jpg")}
+                alt="Robin Mosher"
+                height={40}
+                width={40}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            <h1 className="py-2">
+              The Artisan
+            </h1>
+          </div>
+          <div className="h-auto w-75 ">
+            <div className="overflow-hidden hover:scale-105 transition shadow-xl rounded-xl">
+              <Image
+                src={basePath("images/robinsword.jpg")}
+                alt="Robin Mosher"
+                height={40}
+                width={40}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            <h1 className="py-2">
+              The Performer
+            </h1>
+          </div>
+          <div className="h-auto w-75 ">
+            <div className="overflow-hidden hover:scale-105 transition shadow-xl rounded-xl">
+              <Image
+                src={basePath("images/robinsword.jpg")}
+                alt="Robin Mosher"
+                height={40}
+                width={40}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            <h1 className="py-2">
+              The Craftsman
+            </h1>
+          </div>
+
+          <div className="h-auto w-75 ">
+            <div className="overflow-hidden hover:scale-105 transition shadow-xl rounded-xl">
+              <Image
+                src={basePath("images/robinsword.jpg")}
+                alt="Robin Mosher"
+                height={40}
+                width={40}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            <h1 className="py-2">
+              The Gremlin
+            </h1>
+          </div>
+        </div>
+      </div>
+
+
+      {/*LUNAR ORCHID JEWELRY */}
+      <div className="mask-b-from-green-400">
+        <div className=" flex flex-grid max-w-6xl mx-auto justify-between gap-10 p-10">
+          <div className="h-auto w-75 text-white text-center pt-10">
+            <h1 className="text-2xl">
+              Lunar Orchid Jewelry</h1>
+            <p>
+              This is a little excerpt about Lunar Orchid Jewelry and how to shop on my website etc. etc. etc.....
+            </p>
+          </div>
+          <div className="overflow-hidden h-auto w-100 hover:scale-105 transition shadow-xl">
+            <Image
+              src={basePath("images/lavarock-necklace.jpeg")}
+              alt="Robin Mosher"
+              height={40}
+              width={40}
+              className="w-full h-auto object-cover"
             />
           </div>
-          <h4 className="text-white text-base font-josefin text-center mb-2">
-            {item.name}
-          </h4>
-          <p className="text-dark text-lg font-josefin text-center">
-            {item.price}
-          </p>
-        </a>
+        </div>
       </div>
-    </>
-  );
-};
 
-{
-  /* === COLLECTION COMPONENT === */
+      {/*FOLLOW MY PROJECTS*/}
+      <div className="">
+        <div className=" flex flex-grid max-w-6xl mx-auto justify-between gap-2 p-10">
+        <div className="h-auto w-full">
+          <div className="overflow-hidden  hover:scale-105 transition shadow-xl">
+            <Image
+              src={basePath("images/robinsword.jpg")}
+              alt="Robin Mosher"
+              height={40}
+              width={40}
+              className="object-cover"
+            />
+          </div>
+          <h1 className="py-2 text-2xl text-center text-black">
+            Trailer Conversion
+          </h1>
+          </div>
+
+          <div className="h-auto w-full">
+            <div className="overflow-hidden  hover:scale-105 transition shadow-xl">
+              <Image
+                src={basePath("images/robinsword.jpg")}
+                alt="Robin Mosher"
+                height={40}
+                width={40}
+                className="object-cover"
+              />
+            </div>
+            <h1 className="py-2 text-2xl text-center text-black">
+              Trailer Conversion
+            </h1>
+          </div>
+          <div className="h-100 w-full">
+            <div className="overflow-hidden  hover:scale-105 transition shadow-xl">
+              <Image
+                src={basePath("images/robinsword.jpg")}
+                alt="Robin Mosher"
+                height={40}
+                width={40}
+                className="object-cover overflow-hidden"
+              />
+            </div>
+            <h1 className="py-2 text-2xl text-center text-black">
+              Trailer Conversion
+            </h1>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+  );
 }
-
-type CollectionProps = {
-  title: string;
-  button: string;
-  productTileList: ProductTileItem[];
-};
-
-const Collection = (props: CollectionProps) => {
-  return (
-    <>
-      <section className="bg-primary py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="category-line p-4 mb-8 text-center">
-            <p className="text-4xl font-bad-script text-white">{props.title}</p>
-          </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {props.productTileList.map((item, ix) => (
-              <ProductTile key={ix} item={item} />
-            ))}
-          </div>
-        </div>
-        <div className="text-center mt-8">
-          <a
-            href="gallery.html"
-            className="inline-block bg-secondary text-white px-6 py-2 font-josefin text-sm hover:bg-primary-hover transition-colors rounded-sm"
-          >
-            {props.button}
-          </a>
-        </div>
-      </section>
-    </>
-  );
-};
