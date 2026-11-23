@@ -1,167 +1,113 @@
+import { basePath } from "./utils";
 import Image from "next/image";
 import Navbar from "./ui/navbar";
-import { basePath } from "./utils";
+import Footer from "./ui/footer";
+import CatalogBrowser from "./ui/catalog-browser";
+import { CatalogItem } from "./catalog/data";
+import { Product, ProductData} from "./product/data";
 
-// prettier-ignore
-export default function Home() {
+
+function serializeProducts(
+  products: Record<string, Product>,
+): Record<string, ProductData> {
+  const out: Record<string, ProductData> = {};
+  for (const [key, p] of Object.entries(products)) {
+    out[key] = {
+      slug: p.slug,
+      title: p.title,
+      description: p.description,
+      paragraphs: p.paragraphs,
+      coverImage: p.coverImage,
+      coverImageAlt: p.coverImageAlt,
+      tags: p.tags,
+      productImages: p.productImages,
+    };
+  }
+  return out;
+}
+
+export type CatalogPageProps = {
+  item: CatalogItem;
+};
+
+export default function CatalogPageContent({ item }: CatalogPageProps) {
   return (
-    <div className="bg-white">
-      {/* Navbar */}
-      <Navbar />
+    <>
+      <div className="bg-teal-100 pt-0 font-josefin text-primary">
 
-      {/* HEADER */}
-          <div className="w-full h-auto">
-            <Image
-              src={basePath("images/banner.jpg")}
-              alt="Robin Mosher"
-              height={40}
-              width={40}
-              className="w-full h-auto object-cover"
+      <Navbar></Navbar>
+
+        {/* ARTISAN JEWELRY */}
+        <section>
+          <div className="max-w-7xl bg-secondary-50 mx-auto m-8 p-8">
+            <CatalogBrowser
+              title={item.title}
+              products={serializeProducts(item.products)}
             />
-            <div className="relative max-w-3xl md:max-w-xl md:py-6 bottom-40 left-4 bg-black/40 py-10 px-16 rounded-r-3xl">
-              <div className=" text-white text-center">
-                  <h3 className="text-5xl">Robin Mosher</h3>
-                  <p className="text-lg">RAWRRRRR Heart of an Artist. Hands of a Craftsman.</p>
+          </div>
+        </section>
+
+
+
+
+        <Divider />
+
+        {/* === ABOUT THE CREATOR === */}
+        <section className="bg-primary py-16 lg:py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col lg:flex-row-reverse gap-12 items-center">
+              <div className="w-full lg:w-1/2">
+                <div className="overflow-hidden rounded-full hover:scale-105 hover:shadow-2xl hover:rotate-180 transition">
+                  <Image
+                    src={basePath("images/about-portrait.jpg")}
+                    alt="Robin - Creator of Lunar Orchid Jewelry"
+                    height={40}
+                    width={40}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              </div>
+              <div className="w-full lg:w-1/2">
+                <p className="text-sm uppercase tracking-wider text-gray-400 mb-4 font-josefin">
+                  <strong>About the Creator</strong>
+                </p>
+                <h2 className="font-cinzel text-white text-2xl sm:text-3xl lg:text-4xl mb-6">
+                  Hi! My name is Robin!
+                </h2>
+                <div className="text-gray-300 font-josefin leading-relaxed">
+                  <p className="mb-4">{intro1}</p>
+                  <p className="mb-4">{intro2}</p>
+                  <p>{intro3}</p>
+                </div>
               </div>
             </div>
           </div>
+        </section>
 
-      {/* MEET ROBIN SECTION */}
-        <div className="bg-mauve-400">
-          <div className=" flex flex-grid max-w-6xl mx-auto justify-between gap-6 p-10  text-xl text-center text-black">
-          <div className="h-auto w-75">
-            <div className="overflow-hidden hover:scale-105 transition shadow-xl rounded-xl">
-              <Image
-                src={basePath("images/robinsword.jpg")}
-                alt="Robin Mosher"
-                height={40}
-                width={40}
-                className="w-full h-auto object-cover"
-              />
-            </div>
-            <h1 className="py-2">
-              The Artisan
-            </h1>
-          </div>
-          <div className="h-auto w-75 ">
-            <div className="overflow-hidden hover:scale-105 transition shadow-xl rounded-xl">
-              <Image
-                src={basePath("images/robinsword.jpg")}
-                alt="Robin Mosher"
-                height={40}
-                width={40}
-                className="w-full h-auto object-cover"
-              />
-            </div>
-            <h1 className="py-2">
-              The Performer
-            </h1>
-          </div>
-          <div className="h-auto w-75 ">
-            <div className="overflow-hidden hover:scale-105 transition shadow-xl rounded-xl">
-              <Image
-                src={basePath("images/robinsword.jpg")}
-                alt="Robin Mosher"
-                height={40}
-                width={40}
-                className="w-full h-auto object-cover"
-              />
-            </div>
-            <h1 className="py-2">
-              The Craftsman
-            </h1>
-          </div>
-
-          <div className="h-auto w-75 ">
-            <div className="overflow-hidden hover:scale-105 transition shadow-xl rounded-xl">
-              <Image
-                src={basePath("images/robinsword.jpg")}
-                alt="Robin Mosher"
-                height={40}
-                width={40}
-                className="w-full h-auto object-cover"
-              />
-            </div>
-            <h1 className="py-2">
-              The Gremlin
-            </h1>
-          </div>
-        </div>
+        {/* === FOOTER === */}
+        <Footer/>{" "}
       </div>
-
-
-      {/*LUNAR ORCHID JEWELRY */}
-      <div className="mask-b-from-green-400">
-        <div className=" flex flex-grid max-w-6xl mx-auto justify-between gap-10 p-10">
-          <div className="h-auto w-75 text-white text-center pt-10">
-            <h1 className="text-2xl">
-              Lunar Orchid Jewelry</h1>
-            <p>
-              This is a little excerpt about Lunar Orchid Jewelry and how to shop on my website etc. etc. etc.....
-            </p>
-          </div>
-          <div className="overflow-hidden h-auto w-100 hover:scale-105 transition shadow-xl">
-            <Image
-              src={basePath("images/lavarock-necklace.jpeg")}
-              alt="Robin Mosher"
-              height={40}
-              width={40}
-              className="w-full h-auto object-cover"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/*FOLLOW MY PROJECTS*/}
-      <div className="">
-        <div className=" flex flex-grid max-w-6xl mx-auto justify-between gap-2 p-10">
-        <div className="h-auto w-full">
-          <div className="overflow-hidden  hover:scale-105 transition shadow-xl">
-            <Image
-              src={basePath("images/robinsword.jpg")}
-              alt="Robin Mosher"
-              height={40}
-              width={40}
-              className="object-cover"
-            />
-          </div>
-          <h1 className="py-2 text-2xl text-center text-black">
-            Trailer Conversion
-          </h1>
-          </div>
-
-          <div className="h-auto w-full">
-            <div className="overflow-hidden  hover:scale-105 transition shadow-xl">
-              <Image
-                src={basePath("images/robinsword.jpg")}
-                alt="Robin Mosher"
-                height={40}
-                width={40}
-                className="object-cover"
-              />
-            </div>
-            <h1 className="py-2 text-2xl text-center text-black">
-              Trailer Conversion
-            </h1>
-          </div>
-          <div className="h-100 w-full">
-            <div className="overflow-hidden  hover:scale-105 transition shadow-xl">
-              <Image
-                src={basePath("images/robinsword.jpg")}
-                alt="Robin Mosher"
-                height={40}
-                width={40}
-                className="object-cover overflow-hidden"
-              />
-            </div>
-            <h1 className="py-2 text-2xl text-center text-black">
-              Trailer Conversion
-            </h1>
-            </div>
-        </div>
-      </div>
-
-    </div>
-
+    </>
   );
+}
+
+const intro1 = `
+I'm the creative behind Lunar Orchid Jewelry!
+`.trim();
+
+const intro2 = `
+I developed a love of making jewelry in my childhood. My
+great-grandmother was an artist, jeweler, and collector of
+stones, shells, and trinkets of the earth. She taught me the
+basic skills of jewelry crafting, which I continued to
+foster after she passed.
+`.trim();
+
+const intro3 = `
+When I'm not making jewelry, I'm probably doing something
+ridiculous and you shouldnt ask too many questions.
+`.trim();
+
+function Divider() {
+  return <div className="mx-auto w-[80%] border-b border-secondary"></div>;
 }
