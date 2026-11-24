@@ -1,7 +1,7 @@
 import Carousel from "./carousel";
 import Footer, { footerProducts } from "./footer";
 import {type Product } from "../product/data";
-import Navbar from "./navbar";
+import Sidebar from "./sidebar";
 
 type ProductPageProps = {
   product: Product;
@@ -12,7 +12,7 @@ export default function ProductPageContent({ product }: ProductPageProps) {
   return (
     <>
       <div className="bg-primary pt-20">
-        <Navbar />
+        <Sidebar />
 
         {/* === PRODUCT SECTION === */}
         <section className="py-12 lg:py-20">

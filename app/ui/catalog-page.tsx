@@ -1,9 +1,8 @@
 import Header from "./header";
-import Navbar from "./navbar";
+import Sidebar from "./sidebar";
 import CatalogBrowser from "./catalog-browser";
 import { CatalogItem } from "../catalog/data";
 import { Product, ProductData, productSet } from "../product/data";
-import ShopByProduct from "./shop-by-product";
 import Footer, { footerProducts } from "./footer";
 
 /**
@@ -35,7 +34,6 @@ function serializeProducts(
   return out;
 }
 
-const shopByProductItems = productSet(["forest-pearl", "rainbow-pride-cuff"]);
 
 export type CatalogPageProps = {
   item: CatalogItem;
@@ -49,8 +47,8 @@ export default function CatalogPageContent({ item }: CatalogPageProps) {
         <Header>
         </Header>
 
-        <Navbar>
-        </Navbar>
+        <Sidebar>
+        </Sidebar>
 
         <CatalogBrowser
           title={item.title}
