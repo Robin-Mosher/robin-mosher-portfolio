@@ -1,18 +1,12 @@
 import Carousel from "./carousel";
 import Footer, { footerProducts } from "./footer";
-import { productSet, type Product } from "../product/data";
+import {type Product } from "../product/data";
 import Navbar from "./navbar";
-import ShopByProduct from "./shop-by-product";
 
 type ProductPageProps = {
   product: Product;
 };
 
-const shopByProductItems = productSet([
-  "cosmic-oasis",
-  "goddess-cuff",
-  "forest-nymph",
-]);
 
 export default function ProductPageContent({ product }: ProductPageProps) {
   return (
@@ -40,52 +34,12 @@ export default function ProductPageContent({ product }: ProductPageProps) {
                     {product.paragraphs.map((paragraph, i) => (
                       <p key={i}>{paragraph}</p>
                     ))}
-
-                    {/* Materials */}
-                    {product.materials && (
-                      <p className="text-base text-gray-300">
-                        <strong>Materials:</strong> {product.materials}
-                      </p>
-                    )}
-                  </div>
-
-                  {/* Price */}
-                  <div className="flex flex-row gap-2 text-2xl sm:text-3xl text-gray-300 font-josefin font-semibold mb-6">
-                    Price:{" "}
-                    <p className={product.sale ? "line-through" : ""}>
-                      {product.price}
-                    </p>
-                  </div>
-                  {!product.sale ? (
-                    <></>
-                  ) : (
-                    <div className="text-2xl sm:text-3xl text-gray-300 font-josefin font-semibold mb-6">
-                      Sale: {product.sale}
-                    </div>
-                  )}
-
-                  {/* Buy button */}
-                  <div className="mb-4">
-                    <a
-                      href={product.purchaseLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block bg-secondary text-white px-8 py-3 font-josefin text-base hover:bg-accent hover:scale-105 opacity-100 active:opacity-70 transition rounded-sm"
-                    >
-                      Buy Now!
-                    </a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-
-        {/* === SHOP BY PRODUCT === */}
-        <ShopByProduct products={shopByProductItems} />
-
-        {/* === FOOTER === */}
-        <Footer products={footerProducts} />
       </div>
     </>
   );

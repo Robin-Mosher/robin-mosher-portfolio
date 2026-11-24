@@ -72,7 +72,7 @@ export default function Navbar() {
                 className="text-white hover:text-primary transition-colors"
                 aria-label="Instagram"
               >
-                <div className="h-15 w-15 bg-amber-600">
+                <div className="h-10 w-10 bg-amber-600">
                 </div>
               </a>
               <a
@@ -80,7 +80,7 @@ export default function Navbar() {
                 className="text-white hover:text-primary transition-colors"
                 aria-label="Pinterest"
               >
-                <div className="h-15 w-15 bg-amber-600">
+                <div className="h-10 w-10 bg-amber-600">
                 </div>
               </a>
             </div>

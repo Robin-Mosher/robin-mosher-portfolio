@@ -8,7 +8,7 @@ export default function Announcement() {
       <section>
         <div className="w-full h-10 bg-secondary text-center justify-center py-3">
           <h1 className=" font-josephine text-white text-sm">
-            FREE GROUND SHIPPING ON ALL U.S. ORDERS {" "}
+           Announcement {" "}
           </h1>
         </div>
       </section>

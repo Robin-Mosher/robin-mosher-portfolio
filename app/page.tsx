@@ -6,31 +6,7 @@ import CatalogBrowser from "./ui/catalog-browser";
 import { CatalogItem } from "./catalog/data";
 import { Product, ProductData} from "./product/data";
 
-
-function serializeProducts(
-  products: Record<string, Product>,
-): Record<string, ProductData> {
-  const out: Record<string, ProductData> = {};
-  for (const [key, p] of Object.entries(products)) {
-    out[key] = {
-      slug: p.slug,
-      title: p.title,
-      description: p.description,
-      paragraphs: p.paragraphs,
-      coverImage: p.coverImage,
-      coverImageAlt: p.coverImageAlt,
-      tags: p.tags,
-      productImages: p.productImages,
-    };
-  }
-  return out;
-}
-
-export type CatalogPageProps = {
-  item: CatalogItem;
-};
-
-export default function CatalogPageContent({ item }: CatalogPageProps) {
+export default function Home() {
   return (
     <>
       <div className="bg-teal-100 pt-0 font-josefin text-primary">
@@ -40,16 +16,8 @@ export default function CatalogPageContent({ item }: CatalogPageProps) {
         {/* ARTISAN JEWELRY */}
         <section>
           <div className="max-w-7xl bg-secondary-50 mx-auto m-8 p-8">
-            <CatalogBrowser
-              title={item.title}
-              products={serializeProducts(item.products)}
-            />
           </div>
         </section>
-
-
-
-
         <Divider />
 
         {/* === ABOUT THE CREATOR === */}
