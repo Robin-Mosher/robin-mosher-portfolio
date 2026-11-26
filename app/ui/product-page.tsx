@@ -1,10 +1,9 @@
 import Carousel from "./carousel";
-import Footer, { footerProducts } from "./footer";
-import {type Product } from "../product/data";
+import {type Item } from "../item/data";
 import Sidebar from "./sidebar";
 
 type ProductPageProps = {
-  product: Product;
+  product: Item;
 };
 
 
@@ -16,8 +15,6 @@ export default function ProductPageContent({ product }: ProductPageProps) {
 
         {/* === PRODUCT SECTION === */}
         <section className="py-12 lg:py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
               {/* Left: Image Carousel */}
               <Carousel slides={product.productImgs()} />
 
@@ -37,8 +34,6 @@ export default function ProductPageContent({ product }: ProductPageProps) {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
         </section>
       </div>
     </>

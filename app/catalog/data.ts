@@ -1,17 +1,16 @@
 import {
-  Product,
-  allProducts,
-  braceletProducts,
-  ringProducts,
+  Item,
+  allItems,
+
   necklaceProducts,
   earringProducts,
   industrialChainProducts,
   labradoriteProducts
-} from "../product/data";
+} from "../item/data";
 
 export type CatalogItem = {
   title: string;
-  products: Record<string, Product>;
+  products: Record<string, Item>;
 };
 
 const catalogItems: Record<string, CatalogItem> = {
@@ -22,7 +21,7 @@ const catalogItems: Record<string, CatalogItem> = {
   bracelets: { title: "Bracelets", products: braceletProducts },
   rings: { title: "Rings", products: ringProducts },
   earrings: { title: "Earrings", products: earringProducts },
-  all: { title: "All Products", products: allProducts },
+  all: { title: "All Products", products: allItems },
 };
 
 export default catalogItems;

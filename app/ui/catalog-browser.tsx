@@ -1,11 +1,11 @@
 "use client";
 import { useMemo, useState } from "react";
-import { Product, ProductData, productTags } from "../product/data";
+import { Item, ItemData, productTags } from "../item/data";
 import ProductTile from "./product-tile";
 
 type CatalogBrowserProps = {
   title: string;
-  products: Record<string, ProductData>;
+  products: Record<string, ItemData>;
 };
 
 type MatchMode = "any" | "all";
@@ -17,10 +17,10 @@ type MatchMode = "any" | "all";
  * When no tags are selected, all products are returned.
  */
 function filterProducts(
-  products: Record<string, Product>,
+  products: Record<string, Item>,
   selected: Set<string>,
   mode: MatchMode,
-): Record<string, Product> {
+): Record<string, Item> {
   if (selected.size === 0) return products;
 
   const entries = Object.entries(products).filter(([, product]) => {
@@ -44,9 +44,9 @@ function filterProducts(
 
 export default function CatalogBrowser({ title, products }: CatalogBrowserProps) {
   const productInstances = useMemo(() => {
-    const out: Record<string, Product> = {};
+    const out: Record<string, Item> = {};
     for (const [key, data] of Object.entries(products)) {
-      out[key] = new Product(data);
+      out[key] = new Item(data);
     }
     return out;
   }, [products]);

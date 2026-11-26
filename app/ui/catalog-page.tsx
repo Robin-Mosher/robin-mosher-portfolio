@@ -2,7 +2,7 @@ import Header from "./header";
 import Sidebar from "./sidebar";
 import CatalogBrowser from "./catalog-browser";
 import { CatalogItem } from "../catalog/data";
-import { Product, ProductData, productSet } from "../product/data";
+import { Item, ItemData, itemSet } from "../item/data";
 import Footer, { footerProducts } from "./footer";
 
 /**
@@ -12,9 +12,9 @@ import Footer, { footerProducts } from "./footer";
  */
 
 function serializeProducts(
-  products: Record<string, Product>,
-): Record<string, ProductData> {
-  const out: Record<string, ProductData> = {};
+  products: Record<string, Item>,
+): Record<string, ItemData> {
+  const out: Record<string, ItemData> = {};
   for (const [key, p] of Object.entries(products)) {
     out[key] = {
       slug: p.slug,
@@ -26,7 +26,7 @@ function serializeProducts(
       price: p.price,
       materials: p.materials,
       tags: p.tags,
-      productImages: p.productImages,
+      itemImages: p.itemImages,
       purchaseLink: p.purchaseLink,
       sale: p.sale,
     };
@@ -55,11 +55,8 @@ export default function CatalogPageContent({ item }: CatalogPageProps) {
           products={serializeProducts(item.products)}
         />
 
-        {/* === SHOP BY PRODUCT === */}
-        <ShopByProduct products={shopByProductItems} />
-
         {/* === FOOTER === */}
-        <Footer products={footerProducts} />
+        <Footer/>
       </div>
     </>
   );

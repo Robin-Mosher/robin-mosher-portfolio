@@ -9,7 +9,8 @@ export default function MobileMenu() {
 
   return (
     <section>
-    <div className="relative">
+
+      <div className="relative">
       {/* Hamburger Button (Mobile) */}
       <button
         onClick={() => setMenuOpen(!menuOpen)}

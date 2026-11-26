@@ -1,10 +1,10 @@
-import { Product } from "../product/data";
+import { Item } from "../item/data";
 import ProductTile from "./product-tile";
 
 type CollectionProps = {
   title: string;
   button?: CollectionButton;
-  products: Record<string, Product>;
+  products: Record<string, Item>;
 };
 
 type CollectionButton = {

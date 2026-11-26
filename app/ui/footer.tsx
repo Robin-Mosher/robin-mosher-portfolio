@@ -1,13 +1,13 @@
 import Image from "next/image";
-import { Product, productSet } from "../product/data";
+import { Item, itemSet } from "../item/data";
 import Link from "next/link";
 import { basePath } from "../utils";
 
 export type FooterProps = {
-  products: Record<string, Product>;
+  products: Record<string, Item>;
 };
 
-export const footerProducts = productSet([
+export const footerProducts = itemSet([
   "cosmic-oasis",
   "rainbow-pride-cuff",
   "rustic-breeze",

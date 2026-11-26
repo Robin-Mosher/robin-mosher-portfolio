@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { Product } from "../product/data";
+import { Item } from "../item/data";
 
 export type ProductTileProps = {
-  product: Product;
+  product: Item;
 };
 
 export default function ProductTile({ product }: ProductTileProps) {

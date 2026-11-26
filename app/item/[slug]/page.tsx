@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import products, { getProductBySlug } from "../data";
+import items, { getItemBySlug } from "../data";
 import ProductPageContent from "../../ui/product-page";
 
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
  * Each returned { slug } becomes a static HTML page at /product/<slug>.
  */
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  return Object.values(products).map((item) => ({ slug: item.slug }))
+  return Object.values(items).map((item) => ({ slug: item.slug }))
 }
 
 /**
@@ -20,7 +20,7 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
  */
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = getItemBySlug(slug);
 
   if (!product) {
     return { title: "Product Not Found" };
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
  */
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = getItemBySlug(slug);
 
   if (!product) {
     notFound();

@@ -1,11 +1,11 @@
 import { basePath } from "../utils";
 
-export type ProductImage = {
+export type ItemImage = {
   img: string;
   alt: string;
 };
 
-export type ProductData = {
+export type ItemData = {
   slug: string;
   title: string;
   description: string;
@@ -13,10 +13,10 @@ export type ProductData = {
   coverImage: string;
   coverImageAlt: string;
   tags: string[];
-  productImages: ProductImage[];
+  itemImages: ItemImage[];
 };
 
-export class Product {
+export class Item {
   public slug: string;
   public title: string;
   public description: string;
@@ -24,9 +24,9 @@ export class Product {
   coverImage: string;
   public coverImageAlt: string;
   public tags: string[];
-  productImages: ProductImage[];
+  itemImages: ItemImage[];
 
-  constructor(data: ProductData) {
+  constructor(data: ItemData) {
     this.slug = data.slug;
     this.title = data.title;
     this.description = data.description;
@@ -34,19 +34,19 @@ export class Product {
     this.coverImage = data.coverImage;
     this.coverImageAlt = data.coverImageAlt;
     this.tags = data.tags;
-    this.productImages = data.productImages;
+    this.itemImages = data.itemImages;
   }
 
   public link(): string {
-    return basePath(`product/${this.slug}`);
+    return basePath(`item/${this.slug}`);
   }
 
   public coverImg(): string {
     return basePath(this.coverImage);
   }
 
-  public productImgs(): ProductImage[] {
-    return this.productImages.map(({ alt, img }) => ({
+  public productImgs(): ItemImage[] {
+    return this.itemImages.map(({ alt, img }) => ({
       alt,
       img: basePath(img),
     }));
@@ -54,9 +54,9 @@ export class Product {
 }
 // prettier-ignore
 
-export const products: Record<string, Product> = {
+export const items: Record<string, Item> = {
 
-"other": new Product({
+"other": new Item({
   slug: "borderline",
   title: "Borderline",
   description: "Digital Portrait",
@@ -64,42 +64,42 @@ export const products: Record<string, Product> = {
   coverImage: "images/borderline.jpg",
   coverImageAlt: "Borderline",
   tags: ["digital-art"],
-  productImages: [
-    { img: "images/borderline-0.jpg", alt: "Blossom Pendant" },
+  itemImages: [
+    { img: "images/borderline-0.jpg", alt: "Borderline" },
   ],
 }),
 };
 
-export type ProductTag = {
+export type ItemTag = {
   name: string;
 }
 
-export const productTags: Record<string, ProductTag> = {
+export const itemTags: Record<string, ItemTag> = {
   "digital-art": { name: "Digital" },
 };
 
 // Index of the products keyed by their slug, for fast lookup
-const productsBySlug = Object.fromEntries(
-  Object.values(products).map((item) => [item.slug, item]),
+const itemsBySlug = Object.fromEntries(
+  Object.values(items).map((item) => [item.slug, item]),
 );
 
-export const productSet = (keys: Iterable<string>) => {
+export const itemSet = (keys: Iterable<string>) => {
   const set = new Set(keys);
   return Object.fromEntries(
-    Object.entries(products)
+    Object.entries(items)
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .filter(([key, _]) => set.has(key)),
   );
 };
 
-export default products;
+export default items;
 
 
-export const allProducts = productSet([
-  "blossom",
+export const homeCarousel = itemSet([
+  "borderline",
 ]);
 
 /** Look up a product by its slug. Returns undefined if not found. */
-export function getProductBySlug(slug: string): Product | undefined {
-  return productsBySlug[slug];
+export function getItemBySlug(slug: string): Item | undefined {
+  return itemsBySlug[slug];
 }

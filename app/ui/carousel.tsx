@@ -1,10 +1,10 @@
 "use client"
 import Image from "next/image"
 import { useState } from "react"
-import { ProductImage } from "../product/data"
+import { ItemImage } from "../item/data"
 
 type CarouselProps = {
-  slides: ProductImage[],
+  slides: ItemImage[],
 }
 
 export default function Carousel({ slides }: CarouselProps) {
