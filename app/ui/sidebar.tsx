@@ -2,11 +2,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { pages } from "../data/page";
 import { basePath } from "../utils";
 
 export default function Sidebar() {
-
-
   return (
     <div className="h-full hidden lg:flex flex-col p-8 gap-10 ">
       {/* === Desktop Sidebar === */}
@@ -22,9 +21,11 @@ export default function Sidebar() {
         <div className="">
           <>
             {
-              ["Artwork", "Build", "Performing", "FAQ", "Contact"].map((title) => (
-                <div key={title} className="bg-white p-1">
-                  <div className="text-black text-left text-md transition-all hover:bg-gray-50 hover:scale-105 hover:text-teal-400 p-1">{title}</div>
+              Object.entries(pages).map(([key, item]) => (
+                <div key={item.title} className="bg-white p-1">
+                  <a href={item.link}>
+                    <div className="text-black text-left text-md transition-all hover:bg-gray-50 hover:scale-105 hover:text-teal-400 p-1">{item.title}</div>
+                  </a>
                 </div>
               ))
             }

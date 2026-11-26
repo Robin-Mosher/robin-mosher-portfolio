@@ -6,7 +6,7 @@ import {
   earringProducts,
   industrialChainProducts,
   labradoriteProducts
-} from "../item/data";
+} from "../data/data";
 
 export type CatalogItem = {
   title: string;

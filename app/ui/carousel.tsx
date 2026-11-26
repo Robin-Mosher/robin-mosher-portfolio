@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image"
 import { useState } from "react"
-import { ItemImage } from "../item/data"
+import { ItemImage } from "../data/data"
 
 type CarouselProps = {
   slides: ItemImage[],

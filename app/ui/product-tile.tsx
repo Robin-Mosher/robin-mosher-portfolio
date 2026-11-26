@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Item } from "../item/data";
+import { Item } from "../data/data";
 
 export type ProductTileProps = {
   product: Item;

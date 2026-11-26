@@ -1,6 +1,6 @@
 "use client";
 import { useMemo, useState } from "react";
-import { Item, ItemData, productTags } from "../item/data";
+import { Item, ItemData, productTags } from "../data/data";
 import ProductTile from "./product-tile";
 
 type CatalogBrowserProps = {

@@ -2,8 +2,7 @@ import { basePath } from "./utils";
 import Image from "next/image";
 import Sidebar from "./ui/sidebar";
 import MobileMenu from "./ui/mobile-menu";
-import Carousel from "./ui/carousel";
-import {type Item } from "./item/data";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -11,15 +10,20 @@ export default function Home() {
       <section className="size-full">
       <div className="size-full flex flex-row ">
         <Sidebar></Sidebar>
-          <div className="">
+          <div className="size-full">
             <MobileMenu></MobileMenu>
-              <Image
-                src={basePath("images/sketchbanner.jpg")}
-                alt="Sketch Banner"
-                height={200}
-                width={200}
-                className="size-full object-cover"
-              />
+            <div className="size-full p-2 bg-blue-200">
+              <div>
+
+              </div>
+            </div>
+            {/*<Image
+              src={basePath("images/sketchbanner.jpg")}
+              alt="Sketch Banner"
+              height={200}
+              width={200}
+              className="size-full object-cover"
+            />*/}
           </div>
         </div>
       </section>

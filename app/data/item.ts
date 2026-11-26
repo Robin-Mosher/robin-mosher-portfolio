@@ -55,19 +55,18 @@ export class Item {
 // prettier-ignore
 
 export const items: Record<string, Item> = {
-
-"other": new Item({
-  slug: "borderline",
-  title: "Borderline",
-  description: "Digital Portrait",
-  paragraphs: [],
-  coverImage: "images/borderline.jpg",
-  coverImageAlt: "Borderline",
-  tags: ["digital-art"],
-  itemImages: [
-    { img: "images/borderline-0.jpg", alt: "Borderline" },
-  ],
-}),
+  "borderline": new Item({
+    slug: "borderline",
+    title: "Borderline",
+    description: "Digital Portrait",
+    paragraphs: [],
+    coverImage: "images/borderline.jpg",
+    coverImageAlt: "Borderline",
+    tags: ["digital-art"],
+    itemImages: [
+      { img: "images/borderline-0.jpg", alt: "Borderline" },
+    ],
+  }),
 };
 
 export type ItemTag = {
@@ -93,7 +92,6 @@ export const itemSet = (keys: Iterable<string>) => {
 };
 
 export default items;
-
 
 export const homeCarousel = itemSet([
   "borderline",

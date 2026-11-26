@@ -1,4 +1,4 @@
-import { Item } from "../item/data";
+import { Item } from "../data/data";
 import ProductTile from "./product-tile";
 
 type CollectionProps = {

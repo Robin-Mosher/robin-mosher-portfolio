@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Item, itemSet } from "../item/data";
+import { Item, itemSet } from "../data/data";
 import Link from "next/link";
 import { basePath } from "../utils";
 

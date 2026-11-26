@@ -2,7 +2,7 @@ import Header from "./header";
 import Sidebar from "./sidebar";
 import CatalogBrowser from "./catalog-browser";
 import { CatalogItem } from "../catalog/data";
-import { Item, ItemData, itemSet } from "../item/data";
+import { Item, ItemData, itemSet } from "../data/data";
 import Footer, { footerProducts } from "./footer";
 
 /**

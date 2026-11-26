@@ -1,5 +1,5 @@
 import Carousel from "./carousel";
-import {type Item } from "../item/data";
+import {type Item } from "../data/data";
 import Sidebar from "./sidebar";
 
 type ProductPageProps = {
