@@ -10,10 +10,14 @@ export default function Home() {
     <>
       <section className="size-full">
       <div className="size-full flex flex-row ">
-        <Sidebar></Sidebar>
-          <div className="">
-            <MobileMenu></MobileMenu>
-              <Header></Header>
+          <Sidebar></Sidebar>
+
+          <div className="flex flex-col">
+            <div>
+              <MobileMenu></MobileMenu>
+            </div>
+          <div className="bg-amber-200 w-full h-10">
+          </div>
           </div>
         </div>
       </section>

@@ -10,11 +10,11 @@ export default function MobileMenu() {
   return (
     <section>
 
-      <div className="relative">
+      <div className="w-full relative">
       {/* Hamburger Button (Mobile) */}
       <button
         onClick={() => setMenuOpen(!menuOpen)}
-        className="lg:hidden flex flex-col justify-center items-center w-10 h-10 text-black absolute right-0"
+        className="lg:hidden flex flex-col justify-center items-center w-full h-10 text-black absolute right-0"
         aria-label="Toggle navigation"
       >
         <svg

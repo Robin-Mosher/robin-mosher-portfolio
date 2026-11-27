@@ -8,8 +8,8 @@ export default function Header() {
     <>
 {/* === HERO / HEADER === */ }
 <section>
-  <div className="w-full bg-teal-300">
-    Header
+  <div className="w-full h-10 bg-teal-300">
+Header
   </div>
 </section>
     </>

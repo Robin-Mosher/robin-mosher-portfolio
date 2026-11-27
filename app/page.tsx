@@ -3,6 +3,7 @@ import Image from "next/image";
 import Sidebar from "./ui/sidebar";
 import MobileMenu from "./ui/mobile-menu";
 import Link from "next/link";
+import { Masonry } from "./ui/masonry";
 
 export default function Home() {
   return (
@@ -13,9 +14,15 @@ export default function Home() {
           <div className="size-full">
             <MobileMenu></MobileMenu>
             <div className="size-full p-2 bg-blue-200">
-              <div>
-
-              </div>
+              <Masonry>
+                {
+                  ["One", "Two", "Three", "Four", "Five", "Six"].map((item) => (
+                    <div key={item} className="h-80 w-40 debug">
+                      {item}
+                    </div>
+                  ))
+                }
+              </Masonry>
             </div>
             {/*<Image
               src={basePath("images/sketchbanner.jpg")}
